@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import LeadForm from '../components/LeadForm'
+import ConsultModal from '../components/ConsultModal'
 import {
   IconBuilding,
   IconZones,
@@ -76,6 +77,9 @@ const steps = [
 ]
 
 export default function Home() {
+  const [consultOpen, setConsultOpen] = useState(false)
+  const closeConsult = useCallback(() => setConsultOpen(false), [])
+
   useEffect(() => {
     if (window.location.hash) {
       const id = window.location.hash.slice(1)
@@ -87,6 +91,7 @@ export default function Home() {
   return (
     <div className="page">
       <Header />
+      <ConsultModal open={consultOpen} onClose={closeConsult} />
 
       <section className="hero" aria-label="Manifest hero">
         <div className="hero-media" aria-hidden="true">
@@ -208,9 +213,9 @@ export default function Home() {
           Tell us about your business and we will prepare a clear setup roadmap—license options,
           costs, and next steps—within one business day.
         </p>
-        <a className="btn-primary" href="#consult">
+        <button type="button" className="btn-primary" onClick={() => setConsultOpen(true)}>
           Start Your Consultation
-        </a>
+        </button>
       </section>
 
       <Footer />

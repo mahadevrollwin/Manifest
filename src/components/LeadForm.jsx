@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 
-export default function LeadForm() {
+export default function LeadForm({ id = 'consult', idPrefix = '', className = 'lead-form' }) {
   const navigate = useNavigate()
+  const prefix = idPrefix ? `${idPrefix}-` : ''
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -12,7 +13,7 @@ export default function LeadForm() {
   }
 
   return (
-    <form className="lead-form" id="consult" onSubmit={handleSubmit} noValidate={false}>
+    <form className={className} id={id} onSubmit={handleSubmit}>
       <h2>Begin your consultation</h2>
       <p className="lead-form-sub">
         Share a few details and our Dubai advisors will respond within one business day.
@@ -21,23 +22,41 @@ export default function LeadForm() {
       <div className="form-grid">
         <div className="form-row">
           <div className="field">
-            <label htmlFor="fullName">Full name</label>
-            <input id="fullName" name="fullName" type="text" required autoComplete="name" />
+            <label htmlFor={`${prefix}fullName`}>Full name</label>
+            <input
+              id={`${prefix}fullName`}
+              name="fullName"
+              type="text"
+              required
+              autoComplete="name"
+            />
           </div>
           <div className="field">
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email" type="email" required autoComplete="email" />
+            <label htmlFor={`${prefix}email`}>Email</label>
+            <input
+              id={`${prefix}email`}
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+            />
           </div>
         </div>
 
         <div className="form-row">
           <div className="field">
-            <label htmlFor="phone">Phone / WhatsApp</label>
-            <input id="phone" name="phone" type="tel" required autoComplete="tel" />
+            <label htmlFor={`${prefix}phone`}>Phone / WhatsApp</label>
+            <input
+              id={`${prefix}phone`}
+              name="phone"
+              type="tel"
+              required
+              autoComplete="tel"
+            />
           </div>
           <div className="field">
-            <label htmlFor="interest">Interest</label>
-            <select id="interest" name="interest" required defaultValue="">
+            <label htmlFor={`${prefix}interest`}>Interest</label>
+            <select id={`${prefix}interest`} name="interest" required defaultValue="">
               <option value="" disabled>
                 Select a service
               </option>
@@ -52,9 +71,9 @@ export default function LeadForm() {
         </div>
 
         <div className="field">
-          <label htmlFor="message">How can we help?</label>
+          <label htmlFor={`${prefix}message`}>How can we help?</label>
           <textarea
-            id="message"
+            id={`${prefix}message`}
             name="message"
             placeholder="Tell us about your business goals in the UAE…"
           />
