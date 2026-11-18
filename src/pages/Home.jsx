@@ -4,7 +4,6 @@ import Footer from '../components/Footer'
 import LeadForm from '../components/LeadForm'
 import ConsultModal from '../components/ConsultModal'
 import PricingPlans from '../components/PricingPlans'
-import BankingPartners from '../components/BankingPartners'
 import WhatsAppFloat from '../components/WhatsAppFloat'
 import {
   IconBuilding,
@@ -120,9 +119,6 @@ export default function Home() {
               advisors.
             </p>
             <div className="hero-actions">
-              <a className="btn-primary" href="#consult">
-                Speak with an Advisor
-              </a>
               <a className="btn-ghost" href="#services">
                 Explore services
               </a>
@@ -213,8 +209,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <BankingPartners />
 
       <section className="cta-band">
         <h2>Ready to manifest your UAE venture?</h2>
