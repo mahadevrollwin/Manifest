@@ -158,6 +158,12 @@ export default function Home() {
       <PricingPlans onSelect={openConsult} />
 
       <section className="section why" id="process">
+        <div className="why-media" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80"
+            alt=""
+          />
+        </div>
         <div className="section-inner">
           <div className="section-head">
             <span className="section-eyebrow">The Manifest method</span>

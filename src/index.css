@@ -801,19 +801,54 @@ textarea {
   overflow: hidden;
 }
 
-.why::after {
+.why-media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(58%, 720px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.why-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+  opacity: 0.48;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 22%,
+    rgba(0, 0, 0, 0.55) 48%,
+    #000 78%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 22%,
+    rgba(0, 0, 0, 0.55) 48%,
+    #000 78%
+  );
+}
+
+.why-media::after {
   content: '';
   position: absolute;
-  width: 55%;
-  height: 120%;
-  right: -8%;
-  top: -10%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(154, 171, 122, 0.16),
-    transparent 65%
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--olive-deep) 0%,
+    rgba(42, 50, 31, 0.72) 28%,
+    rgba(42, 50, 31, 0.28) 62%,
+    rgba(42, 50, 31, 0.18) 100%
   );
-  pointer-events: none;
+}
+
+.why .section-inner {
+  position: relative;
+  z-index: 1;
 }
 
 .why .section-eyebrow {
@@ -1314,6 +1349,11 @@ textarea {
     grid-template-columns: 1fr 1fr;
   }
 
+  .why-media {
+    width: min(70%, 520px);
+    opacity: 0.85;
+  }
+
   .presence-layout {
     grid-template-columns: 1fr;
   }
@@ -1368,6 +1408,15 @@ textarea {
   .services-grid,
   .steps {
     grid-template-columns: 1fr;
+  }
+
+  .why-media {
+    width: 100%;
+    opacity: 0.55;
+  }
+
+  .why-media img {
+    opacity: 0.28;
   }
 
   .footer-inner {
