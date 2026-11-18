@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import WhatsAppFloat from '../components/WhatsAppFloat'
 
 const nextSteps = [
   {
@@ -24,6 +25,7 @@ export default function ThankYou() {
   return (
     <div className="page thank-you">
       <Header />
+      <WhatsAppFloat />
 
       <main className="thank-you-main">
         <div className="thank-you-stage">

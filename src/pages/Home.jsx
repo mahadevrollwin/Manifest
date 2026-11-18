@@ -3,6 +3,9 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import LeadForm from '../components/LeadForm'
 import ConsultModal from '../components/ConsultModal'
+import PricingPlans from '../components/PricingPlans'
+import BankingPartners from '../components/BankingPartners'
+import WhatsAppFloat from '../components/WhatsAppFloat'
 import {
   IconBuilding,
   IconZones,
@@ -79,6 +82,7 @@ const steps = [
 export default function Home() {
   const [consultOpen, setConsultOpen] = useState(false)
   const closeConsult = useCallback(() => setConsultOpen(false), [])
+  const openConsult = useCallback(() => setConsultOpen(true), [])
 
   useEffect(() => {
     if (window.location.hash) {
@@ -92,6 +96,7 @@ export default function Home() {
     <div className="page">
       <Header />
       <ConsultModal open={consultOpen} onClose={closeConsult} />
+      <WhatsAppFloat />
 
       <section className="hero" aria-label="Manifest hero">
         <div className="hero-media" aria-hidden="true">
@@ -154,6 +159,8 @@ export default function Home() {
         </div>
       </section>
 
+      <PricingPlans onSelect={openConsult} />
+
       <section className="section why" id="process">
         <div className="section-inner">
           <div className="section-head">
@@ -207,13 +214,15 @@ export default function Home() {
         </div>
       </section>
 
+      <BankingPartners />
+
       <section className="cta-band">
         <h2>Ready to manifest your UAE venture?</h2>
         <p>
           Tell us about your business and we will prepare a clear setup roadmap—license options,
           costs, and next steps—within one business day.
         </p>
-        <button type="button" className="btn-primary" onClick={() => setConsultOpen(true)}>
+        <button type="button" className="btn-primary" onClick={openConsult}>
           Start Your Consultation
         </button>
       </section>

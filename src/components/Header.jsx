@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
+const PHONE_DISPLAY = '+971 4 000 0000'
+const PHONE_HREF = 'tel:+97140000000'
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -13,20 +15,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [location.pathname])
 
-  useEffect(() => {
-    setOpen(false)
-  }, [location.pathname])
-
-  const scrollTo = (id) => {
-    if (location.pathname !== '/') {
-      window.location.href = `/#${id}`
-      return
-    }
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-    setOpen(false)
-  }
-
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="header-inner">
@@ -34,36 +22,18 @@ export default function Header() {
           <img src="/manifest-logo.webp" alt="Manifest Business Services" />
         </Link>
 
-        <nav className={`nav ${open ? 'is-open' : ''}`} aria-label="Primary">
-          <button type="button" className="nav-link" onClick={() => scrollTo('services')}>
-            Services
-          </button>
-          <button type="button" className="nav-link" onClick={() => scrollTo('process')}>
-            Process
-          </button>
-          <button type="button" className="nav-link" onClick={() => scrollTo('presence')}>
-            Dubai
-          </button>
-          <button type="button" className="nav-link" onClick={() => scrollTo('consult')}>
-            Consult
-          </button>
-        </nav>
-
-        <button type="button" className="header-cta" onClick={() => scrollTo('consult')}>
-          Free Consultation
-        </button>
-
-        <button
-          type="button"
-          className={`menu-toggle ${open ? 'is-open' : ''}`}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <a className="header-phone" href={PHONE_HREF}>
+          <span className="header-phone-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.6 4.8c.4-.4 1-.5 1.5-.3l2.2.7c.5.2.8.7.8 1.2l-.2 2.1c0 .4-.2.7-.5.9l-1.1.8a12.4 12.4 0 006.4 6.4l.8-1.1c.2-.3.5-.5.9-.5l2.1-.2c.5 0 1 .3 1.2.8l.7 2.2c.2.5.1 1.1-.3 1.5l-1.1 1.1c-.4.4-1 .6-1.5.5C11.2 20.5 3.5 12.8 2.1 5.9c-.1-.5.1-1.1.5-1.5L6.6 4.8z"
+              />
+            </svg>
+          </span>
+          <span className="header-phone-number">{PHONE_DISPLAY}</span>
+        </a>
       </div>
     </header>
   )
