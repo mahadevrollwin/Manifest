@@ -72,12 +72,15 @@ textarea {
   align-items: center;
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.4s var(--ease);
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease),
+    backdrop-filter 0.4s var(--ease), -webkit-backdrop-filter 0.4s var(--ease);
 }
 
 .site-header.is-scrolled {
-  background: transparent;
-  border-bottom-color: rgba(42, 50, 31, 0.12);
+  background: rgba(248, 247, 242, 0.72);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  border-bottom-color: rgba(42, 50, 31, 0.1);
 }
 
 .site-header.is-scrolled .nav-link {
@@ -1049,42 +1052,6 @@ textarea {
   border-color: var(--olive-deep);
 }
 
-.thank-header {
-  background: transparent;
-  border-bottom-color: rgba(255, 255, 255, 0.12);
-}
-
-.thank-header .brand img {
-  mix-blend-mode: screen;
-  filter: none;
-}
-
-.thank-header .nav-link {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.thank-header .nav-link:hover {
-  color: var(--champagne);
-}
-
-.thank-header .header-cta {
-  color: var(--white);
-  border-color: rgba(255, 255, 255, 0.45);
-}
-
-.thank-header .header-cta:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--champagne);
-  color: var(--champagne);
-}
-
-.thank-header .menu-toggle {
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.thank-header .menu-toggle span {
-  background: var(--white);
-}
 
 /* Responsive */
 @media (max-width: 960px) {

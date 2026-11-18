@@ -1,21 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-export default function Header({ solid = false }) {
-  const [scrolled, setScrolled] = useState(solid)
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
-    if (solid) {
-      setScrolled(true)
-      return
-    }
     const onScroll = () => setScrolled(window.scrollY > 40)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [solid])
+  }, [location.pathname])
 
   useEffect(() => {
     setOpen(false)
@@ -32,9 +28,7 @@ export default function Header({ solid = false }) {
   }
 
   return (
-    <header
-      className={`site-header ${scrolled || solid ? 'is-scrolled' : ''} ${solid ? 'thank-header' : ''}`}
-    >
+    <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="header-inner">
         <Link to="/" className="brand" aria-label="Manifest home">
           <img src="/manifest-logo.webp" alt="Manifest Business Services" />

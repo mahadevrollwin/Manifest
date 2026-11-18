@@ -23,7 +23,7 @@ const nextSteps = [
 export default function ThankYou() {
   return (
     <div className="page thank-you">
-      <Header solid />
+      <Header />
 
       <main className="thank-you-main">
         <div className="thank-you-stage">
