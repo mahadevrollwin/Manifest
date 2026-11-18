@@ -114,42 +114,47 @@ textarea {
 .header-phone {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.55rem 1.05rem 0.55rem 0.55rem;
-  color: rgba(255, 255, 255, 0.96);
+  gap: 0.7rem;
+  padding: 0.5rem 1.15rem 0.5rem 0.5rem;
+  color: var(--olive-deep);
   font-size: 0.88rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  border: 1px solid #e4d7b4;
+  background: linear-gradient(135deg, #e8dcb8 0%, #c4b48a 48%, #b7a474 100%);
+  box-shadow:
+    0 8px 24px rgba(180, 160, 100, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
   transition: background 0.35s var(--ease), border-color 0.35s var(--ease),
     color 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
 .header-phone:hover {
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.14);
-  border-color: var(--champagne);
+  color: var(--olive-deep);
+  background: linear-gradient(135deg, #f0e6c8 0%, #d2c29a 48%, #c4b48a 100%);
+  border-color: #f0e4c0;
   transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 14px 34px rgba(180, 160, 100, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 .header-phone-icon {
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 1.9rem;
+  height: 1.9rem;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(42, 50, 31, 0.18);
+  background: rgba(42, 50, 31, 0.1);
+  color: var(--olive-deep);
   flex-shrink: 0;
-  transition: border-color 0.35s var(--ease), background 0.35s var(--ease);
+  transition: border-color 0.35s var(--ease), background 0.35s var(--ease),
+    color 0.35s var(--ease);
 }
 
 .header-phone:hover .header-phone-icon {
-  border-color: rgba(196, 180, 138, 0.7);
-  background: rgba(196, 180, 138, 0.18);
+  border-color: rgba(42, 50, 31, 0.28);
+  background: rgba(42, 50, 31, 0.14);
 }
 
 .header-phone-icon svg {
@@ -157,29 +162,38 @@ textarea {
   height: 0.95rem;
 }
 
+.header-phone-number {
+  white-space: nowrap;
+}
+
 .site-header.is-scrolled .header-phone {
   color: var(--olive-deep);
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(42, 50, 31, 0.18);
-  box-shadow: 0 4px 16px rgba(42, 50, 31, 0.06);
+  background: linear-gradient(135deg, #e8dcb8 0%, #c4b48a 48%, #b7a474 100%);
+  border-color: #d9caa0;
+  box-shadow:
+    0 8px 22px rgba(90, 107, 60, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .site-header.is-scrolled .header-phone:hover {
-  color: var(--white);
-  background: var(--olive);
-  border-color: var(--olive);
-  box-shadow: 0 10px 28px rgba(42, 50, 31, 0.18);
+  color: var(--olive-deep);
+  background: linear-gradient(135deg, #f0e6c8 0%, #d2c29a 48%, #c4b48a 100%);
+  border-color: #e8d9ad;
+  box-shadow:
+    0 14px 32px rgba(90, 107, 60, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 .site-header.is-scrolled .header-phone-icon {
-  border-color: rgba(42, 50, 31, 0.2);
-  background: rgba(242, 244, 236, 0.9);
+  border-color: rgba(42, 50, 31, 0.18);
+  background: rgba(42, 50, 31, 0.1);
+  color: var(--olive-deep);
 }
 
 .site-header.is-scrolled .header-phone:hover .header-phone-icon {
-  border-color: rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--white);
+  border-color: rgba(42, 50, 31, 0.28);
+  background: rgba(42, 50, 31, 0.14);
+  color: var(--olive-deep);
 }
 
 /* ——— Hero ——— */
