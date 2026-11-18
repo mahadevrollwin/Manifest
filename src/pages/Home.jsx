@@ -2,31 +2,49 @@ import { useEffect } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import LeadForm from '../components/LeadForm'
+import {
+  IconBuilding,
+  IconZones,
+  IconGlobe,
+  IconPassport,
+  IconBank,
+  IconLedger,
+  IconCompass,
+  IconBlueprint,
+  IconSeal,
+  IconGrowth,
+} from '../components/Icons'
 
 const services = [
   {
     title: 'Mainland Company Setup',
     copy: 'End-to-end mainland incorporation with trade name, licensing, and office solutions tailored to your activity.',
+    Icon: IconBuilding,
   },
   {
     title: 'Free Zone Formation',
     copy: 'Strategic free zone structuring across DIFC, DMCC, and specialist zones—with clear cost and timeline guidance.',
+    Icon: IconZones,
   },
   {
     title: 'Offshore Structures',
     copy: 'Discrete offshore company formation for holding, trading, and asset protection with full documentation support.',
+    Icon: IconGlobe,
   },
   {
     title: 'Visa & PRO Services',
     copy: 'Investor, partner, and employment visas handled with dedicated PRO support through every government step.',
+    Icon: IconPassport,
   },
   {
     title: 'Banking Introductions',
     copy: 'Warm introductions to leading UAE banks and preparation of the corporate banking package your relationship managers expect.',
+    Icon: IconBank,
   },
   {
     title: 'Accounting & Tax',
     copy: 'Bookkeeping, VAT, corporate tax readiness, and ongoing compliance so your Dubai entity stays audit-ready.',
+    Icon: IconLedger,
   },
 ]
 
@@ -35,21 +53,25 @@ const steps = [
     num: '01',
     title: 'Discovery',
     copy: 'A private consultation to clarify activity, ownership, and the right jurisdiction for your goals.',
+    Icon: IconCompass,
   },
   {
     num: '02',
     title: 'Structure',
     copy: 'We design your licensing path, shareholding, and visa plan with transparent timelines and fees.',
+    Icon: IconBlueprint,
   },
   {
     num: '03',
     title: 'Execute',
     copy: 'Our team manages authorities, documentation, and follow-ups until your license is issued.',
+    Icon: IconSeal,
   },
   {
     num: '04',
     title: 'Operate',
     copy: 'Banking, visas, and compliance continue under one dedicated advisor as you scale in the UAE.',
+    Icon: IconGrowth,
   },
 ]
 
@@ -115,6 +137,9 @@ export default function Home() {
           <div className="services-grid">
             {services.map((item, i) => (
               <article className="service-item" key={item.title}>
+                <div className="service-icon" aria-hidden="true">
+                  <item.Icon />
+                </div>
                 <span className="service-index">0{i + 1}</span>
                 <h3>{item.title}</h3>
                 <p>{item.copy}</p>
@@ -138,6 +163,9 @@ export default function Home() {
           <div className="steps">
             {steps.map((step) => (
               <div className="step" key={step.num}>
+                <div className="step-icon" aria-hidden="true">
+                  <step.Icon />
+                </div>
                 <div className="step-num">{step.num}</div>
                 <h3>{step.title}</h3>
                 <p>{step.copy}</p>
